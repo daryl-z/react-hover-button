@@ -1,7 +1,7 @@
 {
-  "name": "react-color-button",
+  "name": "react-hover-button",
   "version": "1.0.0",
-  "description": "",
+  "description": "A react component",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server -d --config webpack.demo.config.js --progress --colors --display-error-details",
@@ -9,13 +9,15 @@
     "build-component": "NODE_ENV=production node_modules/.bin/webpack -p --progress --colors --display-error-details",
     "build": "npm run build-component && npm run build-demo"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "react",
+    "button"
+  ],
+  "author": "Angelki",
+  "license": "MIT",
   "dependencies": {
     "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "sass": "^1.15.2"
+    "react-dom": "^16.7.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -29,6 +31,7 @@
     "html-webpack-plugin": "^3.2.0",
     "mathsass": "^0.10.1",
     "node-sass": "^4.11.0",
+    "sass": "^1.15.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.28.3",
