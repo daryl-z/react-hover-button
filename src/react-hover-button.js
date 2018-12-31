@@ -1,13 +1,30 @@
-import React, { Component } from "react";
+import React, { useRef, useEffect, useState, Component } from "react";
 import styled from "styled-components";
 
 export default function AnimationButton({
   color,
+  width = "12em",
+  height,
   background,
-  hoverBackColor,
+  hoverBack,
   children = "Hover me",
   onClick
 }) {
+  const btnEle = useRef(null);
+  const [btnWidth, setWidth] = useState(0);
+  const [btnHeight, setHeight] = useState(0);
+  const [diagonal, setDiagonal] = useState(0);
+  const [maskRotateDeg, setDeg] = useState(0);
+  useEffect(_ => {
+    const { offsetHeight, offsetWidth } = btnEle.current;
+    setWidth(offsetWidth);
+    setHeight(offsetHeight);
+    setDiagonal(
+      Math.sqrt(Math.pow(offsetWidth, 2) + Math.pow(offsetHeight, 2))
+    );
+    setDeg(Math.atan(offsetHeight / offsetWidth) * (-180 / Math.PI));
+  }, []);
+
   const Mask = styled.a`
     --p: 0;
     --q: calc(1 - var(--p));
@@ -15,9 +32,9 @@ export default function AnimationButton({
     position: relative;
     display: block;
     z-index: 1;
-    width: 12em;
+    width: ${width}px;
     background: ${({ backgroundColor }) =>
-      backgroundColor ? backgroundColor : "#444"};
+      backgroundColor ? backgroundColor : "#fff"};
     color: #000;
     font: 700 1.125em/ 3 trebuchet ms, sans-serif;
     text-align: center;
@@ -31,15 +48,14 @@ export default function AnimationButton({
       z-index: -1;
       top: 0;
       bottom: 0;
-      left: calc(var(--j) * (100% - 12.36932em));
-      width: 12.36932em;
+      left: calc(var(--j) * (100% - ${diagonal}px));
+      width: ${diagonal}px;
       transform-origin: calc(var(--j) * 100%) calc(var(--i) * 100%);
-      transform: rotate(-14.03624deg)
+      transform: rotate(${maskRotateDeg}deg)
         translate(calc(var(--q) * (1 - 2 * var(--i)) * -100%));
       box-shadow: 0 0 0 1px currentcolor;
       background: currentcolor;
-      color: ${({ hoverBackColor }) =>
-        hoverBackColor ? hoverBackColor : "#ef4654"};
+      color: ${({ hoverBack }) => (hoverBack ? hoverBack : "#ef4654")};
       transition: transform 0.5s ease-in-out;
       content: "";
     }
@@ -54,12 +70,17 @@ export default function AnimationButton({
   return (
     <>
       <Mask
-        hoverBackColor={hoverBackColor}
+        hoverBack={hoverBack}
         onClick={onClick}
         backgroundColor={background}
+        ref={btnEle}
       >
         {children}
       </Mask>
+
+      {/* <a className="react-hover-btn" id="react-hover-btn" href="#">
+        buy tickets
+      </a> */}
     </>
   );
 }

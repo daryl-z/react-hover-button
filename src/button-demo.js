@@ -7,8 +7,8 @@ function ButtonDemoList() {
   return (
     <div>
       <AnimationButton
-        hoverBackColor="#0093ff"
-        background={"linear-gradient(to right, #6dd5ed, #2193b0)"}
+        width={300}
+        // hoverBackColor="#0093ff"
       >
         确定
       </AnimationButton>
