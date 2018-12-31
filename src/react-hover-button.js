@@ -6,7 +6,7 @@ export default function AnimationButton({
   width = "12em",
   height,
   background,
-  hoverBack,
+  hoverBackColor,
   children = "Hover me",
   onClick
 }) {
@@ -30,9 +30,10 @@ export default function AnimationButton({
     --q: calc(1 - var(--p));
     overflow: hidden;
     position: relative;
+    height: ${typeof height === "number" ? `${height}px` : height};
     display: block;
     z-index: 1;
-    width: ${width}px;
+    width: ${typeof width === "number" ? `${width}px` : width};
     background: ${({ backgroundColor }) =>
       backgroundColor ? backgroundColor : "#fff"};
     color: #000;
@@ -55,7 +56,8 @@ export default function AnimationButton({
         translate(calc(var(--q) * (1 - 2 * var(--i)) * -100%));
       box-shadow: 0 0 0 1px currentcolor;
       background: currentcolor;
-      color: ${({ hoverBack }) => (hoverBack ? hoverBack : "#ef4654")};
+      color: ${({ hoverBackColor }) =>
+        hoverBackColor ? hoverBackColor : "#ef4654"};
       transition: transform 0.5s ease-in-out;
       content: "";
     }
@@ -70,17 +72,13 @@ export default function AnimationButton({
   return (
     <>
       <Mask
-        hoverBack={hoverBack}
+        hoverBackColor={hoverBackColor}
         onClick={onClick}
         backgroundColor={background}
         ref={btnEle}
       >
         {children}
       </Mask>
-
-      {/* <a className="react-hover-btn" id="react-hover-btn" href="#">
-        buy tickets
-      </a> */}
     </>
   );
 }
