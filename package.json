@@ -1,8 +1,13 @@
 {
   "name": "react-hover-button",
-  "version": "0.1.4",
+  "version": "0.1.7",
   "description": "A react component",
   "main": "lib/index.js",
+  "homepage": "https://github.com/Angelki/react-hover-button#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Angelki/react-hover-button.git"
+  },
   "scripts": {
     "start": "webpack-dev-server -d --config webpack.demo.config.js --progress --colors --display-error-details",
     "build-demo": "NODE_ENV=production node_modules/.bin/webpack -p --config webpack.demo.config.js --progress --colors --display-error-details",

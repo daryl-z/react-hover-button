@@ -1,5 +1,5 @@
 <center>
-<img src="./btn.gif">
+<img src="./assets/btn.gif">
 </center>
 
 <center style="color:#4d4d4d">A Button Component of React.Inspired By <a href="https://codepen.io/thebabydino/pen/vQNVQe/">Hover/focus effects</a></center>
@@ -14,7 +14,7 @@ npm i react-hover-button
 
 ### usage
 
-```js
+```jsx
 import React from "react";
 import { render } from "react-dom";
 import AnimationButton from "react-hover-button";
