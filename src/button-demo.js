@@ -6,8 +6,8 @@ import "./styles.css";
 function ButtonDemoList() {
   return (
     <div>
-      <AnimationButton width={300} hoverBackColor="#0093ff">
-        确定
+      <AnimationButton width={300} color="#333">
+        Buy Ticket
       </AnimationButton>
     </div>
   );

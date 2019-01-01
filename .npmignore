@@ -1,0 +1,8 @@
+
+**/.*
+example
+demo
+script
+yarn.lock
+yarn-error.log
+*.txt

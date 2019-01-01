@@ -1,8 +1,9 @@
 import React, { useRef, useEffect, useState, Component } from "react";
 import styled from "styled-components";
+import "./hoverButton.css";
 
 export default function AnimationButton({
-  color,
+  color = "#000",
   width = "12em",
   height,
   background,
@@ -28,27 +29,16 @@ export default function AnimationButton({
   const Mask = styled.a`
     --p: 0;
     --q: calc(1 - var(--p));
-    overflow: hidden;
-    position: relative;
     height: ${typeof height === "number" ? `${height}px` : height};
-    display: block;
-    z-index: 1;
     width: ${typeof width === "number" ? `${width}px` : width};
     background: ${({ backgroundColor }) =>
       backgroundColor ? backgroundColor : "#fff"};
-    color: #000;
-    font: 700 1.125em/ 3 trebuchet ms, sans-serif;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
+    line-height: ${typeof height === "number" ? `${height}px` : height};
+    color: ${color};
     &:before,
     &:after {
       --i: var(--p);
       --j: calc(1 - var(--i));
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
       left: calc(var(--j) * (100% - ${diagonal}px));
       width: ${diagonal}px;
       transform-origin: calc(var(--j) * 100%) calc(var(--i) * 100%);
@@ -76,6 +66,7 @@ export default function AnimationButton({
         onClick={onClick}
         backgroundColor={background}
         ref={btnEle}
+        className="react-hover-button"
       >
         {children}
       </Mask>

@@ -1,8 +1,8 @@
 {
   "name": "react-hover-button",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "A react component",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "start": "webpack-dev-server -d --config webpack.demo.config.js --progress --colors --display-error-details",
     "build-demo": "NODE_ENV=production node_modules/.bin/webpack -p --config webpack.demo.config.js --progress --colors --display-error-details",
@@ -11,7 +11,8 @@
   },
   "keywords": [
     "react",
-    "button"
+    "button",
+    "react hooks"
   ],
   "author": "Angelki",
   "license": "MIT",
