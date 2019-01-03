@@ -9,7 +9,8 @@ export default function AnimationButton({
   background,
   hoverBackColor,
   children = "Hover me",
-  onClick
+  onClick,
+  type
 }) {
   const btnEle = useRef(null);
   const [btnWidth, setWidth] = useState(0);

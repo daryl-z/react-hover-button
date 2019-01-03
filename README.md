@@ -2,7 +2,7 @@
 <img src="./assets/btn.gif">
 </center>
 
-<center style="color:#4d4d4d">A Button Component of React.Inspired By <a href="https://codepen.io/thebabydino/pen/vQNVQe/">Hover/focus effects</a></center>
+<center style="color:#4d4d4d">A Button Component of React. Inspired By <a href="https://codepen.io/thebabydino/pen/vQNVQe/">Hover/focus effects</a></center>
 
 ## Get Started
 
