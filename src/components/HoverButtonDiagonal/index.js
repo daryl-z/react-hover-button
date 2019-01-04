@@ -13,20 +13,43 @@ export default function AnimationButton({
   type
 }) {
   const btnEle = useRef(null);
+  const beforeBtn = useRef(null);
+  const afterBtn = useRef(null);
   const [btnWidth, setWidth] = useState(0);
   const [btnHeight, setHeight] = useState(0);
   const [diagonal, setDiagonal] = useState(0);
   const [maskRotateDeg, setDeg] = useState(0);
-  // useEffect(_ => {
-  //   const { offsetHeight, offsetWidth } = btnEle.current;
-  //   setWidth(offsetWidth);
-  //   setHeight(offsetHeight);
-  //   setDiagonal(
-  //     Math.sqrt(Math.pow(offsetWidth, 2) + Math.pow(offsetHeight, 2))
-  //   );
-  //   setDeg(Math.atan(offsetHeight / offsetWidth) * (-180 / Math.PI));
-  // }, []);
+  useEffect(_ => {
+    const { offsetHeight, offsetWidth } = btnEle.current;
+    beforeBtn.current.style.setProperty(
+      "transform",
+      `rotate(${maskRotateDeg}deg) translate(calc(var(--q) * (1 - 2 * var(--i)) * -100%))`
+    );
+    setWidth(offsetWidth);
+    setHeight(offsetHeight);
+    setDiagonal(
+      Math.sqrt(Math.pow(offsetWidth, 2) + Math.pow(offsetHeight, 2))
+    );
+    setDeg(Math.atan(offsetHeight / offsetWidth) * (-180 / Math.PI));
+  }, []);
 
+  const mounted = useRef();
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+    } else {
+      // 这里只在update是执行
+      beforeBtn.current.style.setProperty(
+        "transform",
+        `rotate(${maskRotateDeg}deg) translate(calc(var(--q) * (1 - 2 * var(--i)) * -100%))`
+      );
+      afterBtn.current.style.setProperty(
+        "transform",
+        `rotate(${maskRotateDeg}deg) translate(calc(var(--q) * (1 - 2 * var(--i)) * -100%))`
+      );
+    }
+  });
+  // 在css中定义变量 然后用js控制那些需要用react控制的变量
   const Mask = styled.a`
     --p: 0;
     --q: calc(1 - var(--p));
@@ -63,22 +86,25 @@ export default function AnimationButton({
 
   return (
     <>
-      {/* <Mask
-        hoverBackColor={hoverBackColor}
-        onClick={onClick}
-        backgroundColor={background}
+      {/* // TODO: use DOM change style in css
+      // Element.style.setProperty */}
+      <a
+        className="hover-button-diagonal"
+        style={{
+          background: background ? backgroundColor : "#fff",
+          height: typeof height === "number" ? `${height}px` : height,
+          lineHeight: typeof height === "number" ? `${height}px` : height,
+          width: typeof width === "number" ? `${width}px` : width,
+          color: color
+        }}
+        href="#"
         ref={btnEle}
-        className="react-hover-button"
+        onClick={onClick}
       >
+        <div className="btn-before" ref={beforeBtn} />
         {children}
-      </Mask> */}
-      <div className="hover-button-diagonal">
-        <div className="btn-before" />
-        <a href="#" className="hover-button-anchor">
-          Confirm
-        </a>
-        <div className="btn-after" />
-      </div>
+        <div className="btn-after" ref={afterBtn} />
+      </a>
     </>
   );
 }
