@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import AnimationButton from "./components/buttons/react-hover-button";
+import AnimationButton from "./components/HoverButtonDiagonal/index";
 import "./styles.css";
 
 function ButtonDemoList() {
