@@ -23,7 +23,7 @@ function ButtonDemoList() {
   return (
     <div>
       <HoverButtonDiagonal width={300} color="#333" maskColor="#eb512c">
-        Buy Ticket
+        Hover me!
       </HoverButtonDiagonal>
     </div>
   );

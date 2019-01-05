@@ -8,7 +8,11 @@ export default function HoverButtonDiagonal({
   background,
   maskColor,
   children = "Hover me",
-  onClick
+  onClick,
+  style,
+  maskStyle,
+  disabled = false, // TODO
+  ...params
 }) {
   const btnEle = useRef(null);
   const beforeBtn = useRef(null);
@@ -32,21 +36,20 @@ export default function HoverButtonDiagonal({
       mounted.current = true;
     } else {
       const commonStyleMap = {
-        transform: `rotate(${maskRotateDeg}deg) translate(calc(var(--q) * (1 - 2 * var(--i)) * -100%))`,
-        width: `${diagonal}px`,
-        left: `calc(var(--j) * (100% - ${diagonal}px))`
+        "--maskRotateDeg": maskRotateDeg + "deg",
+        "--diagonal": diagonal + "px"
       };
-      [beforeBtn, afterBtn].forEach(btn => {
-        for (let prop in commonStyleMap) {
-          if (commonStyleMap.hasOwnProperty(prop)) {
-            btn.current.style.setProperty(prop, commonStyleMap[prop]);
-          }
+      for (let prop in commonStyleMap) {
+        if (commonStyleMap.hasOwnProperty(prop)) {
+          btnEle.current.style.setProperty(prop, commonStyleMap[prop]);
         }
-      });
+      }
     }
   });
 
   const pseudoColor = { color: maskColor ? maskColor : "#fff" };
+  const judgeCSSValue = value =>
+    typeof value === "number" ? `${value}px` : value;
 
   return (
     <>
@@ -54,22 +57,29 @@ export default function HoverButtonDiagonal({
         className="hover-button-diagonal"
         style={{
           background: background ? backgroundColor : "#fff",
-          height: typeof height === "number" ? `${height}px` : height,
-          lineHeight: typeof height === "number" ? `${height}px` : height,
-          width: typeof width === "number" ? `${width}px` : width,
-          color: color
+          height: judgeCSSValue(height),
+          lineHeight: judgeCSSValue(height),
+          width: judgeCSSValue(width),
+          color: color,
+          ...style
         }}
         href="#"
         ref={btnEle}
         onClick={onClick}
+        disabled={disabled}
+        {...params}
       >
         <div
           className="btn-before"
-          style={{ ...pseudoColor }}
+          style={{ ...pseudoColor, ...maskStyle }}
           ref={beforeBtn}
         />
         {children}
-        <div className="btn-after" style={{ ...pseudoColor }} ref={afterBtn} />
+        <div
+          className="btn-after"
+          style={{ ...pseudoColor, ...maskStyle }}
+          ref={afterBtn}
+        />
       </a>
     </>
   );
