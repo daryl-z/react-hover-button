@@ -1,0 +1,40 @@
+.hover-button-diagonal {
+  --p: 0;
+  --q: calc(1 - var(--p));
+  display: block;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  width: 12em;
+  background: #fff;
+  color: #000;
+  font: 700 1.125em/ 3 trebuchet ms, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.btn-before,
+.btn-after {
+  --i: var(--p);
+  --j: calc(1 - var(--i));
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--j) * (100% - 12.36932em));
+  width: 12.36932em;
+  transform-origin: calc(var(--j) * 100%) calc(var(--i) * 100%);
+  box-shadow: 0 0 0 1px currentcolor;
+  background: currentcolor;
+  color: #ef4654;
+  transition: transform 0.5s ease-in-out;
+  content: "";
+}
+.btn-after {
+  --i: var(--q);
+}
+.hover-button-diagonal:hover,
+.hover-button-diagonal:focus {
+  --p: 1;
+}

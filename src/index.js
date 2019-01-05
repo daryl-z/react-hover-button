@@ -1,2 +1,2 @@
-import AnimationButton from "./react-hover-button";
+import AnimationButton from "./components/buttons/react-hover-button";
 export default AnimationButton;
