@@ -1,5 +1,5 @@
 <center>
-<img src="./docs/btn.gif">
+<img src="./btn.gif">
 </center>
 
 <center style="color:#4d4d4d">A Button Component of React. Inspired By <a href="https://codepen.io/thebabydino/pen/vQNVQe/">Hover/focus effects</a></center>

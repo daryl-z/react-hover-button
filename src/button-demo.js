@@ -6,7 +6,7 @@ import "./styles.css";
 function ButtonDemoList() {
   return (
     <div>
-      <HoverButtonDiagonal width={300} color="#333" maskColor="#eb512c">
+      <HoverButtonDiagonal width={300} color="#333" maskColor="#179be2">
         Buy Ticket
       </HoverButtonDiagonal>
     </div>
