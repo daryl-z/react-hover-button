@@ -10,9 +10,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server -d --config webpack.demo.config.js --progress --colors --display-error-details",
-    "build-demo": "NODE_ENV=production node_modules/.bin/webpack -p --config webpack.demo.config.js --progress --colors --display-error-details",
-    "build-component": "NODE_ENV=production node_modules/.bin/webpack -p --progress --colors --display-error-details",
-    "build": "npm run build-component && npm run build-demo"
+    "build:demo": "NODE_ENV=production node_modules/.bin/webpack -p --config webpack.demo.config.js --progress --colors --display-error-details",
+    "build": "NODE_ENV=production node_modules/.bin/webpack -p --progress --colors --display-error-details"
   },
   "keywords": [
     "react",
@@ -38,6 +37,10 @@
     "webpack-dev-server": "^3.1.14"
   },
   "peerDependencies": {
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2"
+  },
+  "dependencies": {
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2"
   }

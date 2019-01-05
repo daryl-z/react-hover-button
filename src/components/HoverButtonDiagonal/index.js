@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState, Component } from "react";
 import "./index.css";
 
-export default function AnimationButton({
+export default function HoverButtonDiagonal({
   color = "#000",
   width = "12em",
   height,
