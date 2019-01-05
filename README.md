@@ -17,14 +17,14 @@ npm i react-hover-button
 ```jsx
 import React from "react";
 import { render } from "react-dom";
-import AnimationButton from "react-hover-button";
+import { HoverButtonDiagonal } from "react-hover-button";
 
 function ButtonDemoList() {
   return (
     <div>
-      <AnimationButton width={300} color="#333">
+      <HoverButtonDiagonal width={300} color="#333" maskColor="#eb512c">
         Buy Ticket
-      </AnimationButton>
+      </HoverButtonDiagonal>
     </div>
   );
 }
@@ -33,12 +33,12 @@ render(<ButtonDemoList />, document.getElementById("root"));
 
 #### Props List
 
-```
-  color = "#000",
-  width = "12em",
-  height,
-  background,
-  hoverBackColor,
+```json
+  color = "#000"，//font color
+  width = "12em", // button width
+  height,   // button height and lineheight
+  background, // buton backgound
+  maskColor, // mask color and background color
   children = "Hover me",
   onClick
 ```
