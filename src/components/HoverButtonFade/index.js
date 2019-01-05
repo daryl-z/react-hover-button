@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState, Component } from "react";
-import styled from "styled-components";
 import "./hoverButton.css";
 
 export default function AnimationButton({

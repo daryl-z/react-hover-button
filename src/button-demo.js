@@ -6,7 +6,7 @@ import "./styles.css";
 function ButtonDemoList() {
   return (
     <div>
-      <AnimationButton width={300} color="#333">
+      <AnimationButton width={300} color="#333" maskColor="#eb512c">
         Buy Ticket
       </AnimationButton>
     </div>

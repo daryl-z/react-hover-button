@@ -2,7 +2,7 @@
   --p: 0;
   --q: calc(1 - var(--p));
   display: block;
-  /* overflow: hidden; */
+  overflow: hidden;
   position: relative;
   z-index: 1;
   width: 12em;
@@ -10,11 +10,10 @@
   color: #000;
   font: 700 1.125em/ 3 trebuchet ms, sans-serif;
   text-align: center;
+  text-decoration: none;
   text-transform: uppercase;
 }
-.hover-button-anchor {
-  text-decoration: none;
-}
+
 .btn-before,
 .btn-after {
   --i: var(--p);
@@ -26,8 +25,6 @@
   left: calc(var(--j) * (100% - 12.36932em));
   width: 12.36932em;
   transform-origin: calc(var(--j) * 100%) calc(var(--i) * 100%);
-  /* transform: rotate(-14.03624deg)
-    translate(calc(var(--q) * (1 - 2 * var(--i)) * -100%)); */
   box-shadow: 0 0 0 1px currentcolor;
   background: currentcolor;
   color: #ef4654;
