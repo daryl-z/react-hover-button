@@ -1,5 +1,5 @@
 <center>
-<img src="./btn.gif">
+<img src="./docs/btn.gif">
 </center>
 
 <center style="color:#4d4d4d">A Button Component of React. Inspired By <a href="https://codepen.io/thebabydino/pen/vQNVQe/">Hover/focus effects</a></center>
@@ -15,15 +15,25 @@ npm i react-hover-button
 ### usage
 
 ```jsx
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { render } from "react-dom";
 import { HoverButtonDiagonal } from "react-hover-button";
 
 function ButtonDemoList() {
+  const hoverBtn = useRef(null);
+  const [loading, switchLoading] = useState(false);
+  useEffect(_ => {
+    hoverBtn.current.addEventListener(
+      "click",
+      _ => switchLoading(prev => !prev),
+      false
+    );
+  }, []);
+
   return (
-    <div>
-      <HoverButtonDiagonal width={300} color="#333" maskColor="#eb512c">
-        Buy Ticket
+    <div ref={hoverBtn}>
+      <HoverButtonDiagonal width={300} color="#333" loading={loading}>
+        Hover me!
       </HoverButtonDiagonal>
     </div>
   );
@@ -40,5 +50,6 @@ render(<ButtonDemoList />, document.getElementById("root"));
   background, // buton backgound
   maskColor, // mask color and background color
   children = "Hover me",
-  onClick
+  onClick,
+  loading = false
 ```
