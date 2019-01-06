@@ -1,8 +1,6 @@
-<center>
-<img src="./docs/btn.gif">
-</center>
+![btn](./btn.gif)
 
-<center style="color:#4d4d4d">A Button Component of React. Inspired By <a href="https://codepen.io/thebabydino/pen/vQNVQe/">Hover/focus effects</a></center>
+A Button Component of React. Inspired By [Hover/focus effects](https://codepen.io/thebabydino/pen/vQNVQe/")
 
 ## Get Started
 
@@ -51,5 +49,6 @@ render(<ButtonDemoList />, document.getElementById("root"));
   maskColor, // mask color and background color
   children = "Hover me",
   onClick,
-  loading = false
+  loading = false,
+  disabled = false
 ```

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useLayoutEffect, useState } from "react";
 import getCssValue from "../../utils/getCssValue";
 import "./index.css";
 
@@ -23,7 +23,7 @@ function HoverButtonDiagonal({
   const [maskRotateDeg, setDeg] = useState(0);
 
   // didMount
-  useEffect(_ => {
+  useLayoutEffect(_ => {
     const { offsetHeight, offsetWidth } = btnEle.current;
     setDiagonal(
       Math.sqrt(Math.pow(offsetWidth, 2) + Math.pow(offsetHeight, 2))
@@ -34,7 +34,7 @@ function HoverButtonDiagonal({
 
   // didUpdate
   const mounted = useRef();
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!mounted.current) {
       mounted.current = true;
     } else {
@@ -55,7 +55,9 @@ function HoverButtonDiagonal({
   return (
     <>
       <a
-        className={`hover-button-diagonal ${loading ? "button--loading" : ""}`}
+        className={`hover-button-diagonal ${
+          loading && !disabled ? "button--loading" : ""
+        } ${disabled ? "not-active" : ""}`}
         style={{
           background: background ? backgroundColor : "#fff",
           height: getCssValue(height),
@@ -67,7 +69,6 @@ function HoverButtonDiagonal({
         href="#"
         ref={btnEle}
         onClick={onClick}
-        disabled={disabled}
         {...params}
       >
         <div
