@@ -26,9 +26,8 @@
   top: 0;
   bottom: 0;
   left: calc(var(--j) * (100% - 12.36932em));
-  width: 12.36932em;
   transform-origin: calc(var(--j) * 100%) calc(var(--i) * 100%);
-  box-shadow: 0 0 0 2px currentcolor;
+  box-shadow: 0 0 0 1px currentcolor;
   background: currentcolor;
   color: #ef4654;
   transition: transform 0.5s ease-in-out;
@@ -44,4 +43,35 @@
 .hover-button-diagonal:hover,
 .hover-button-diagonal:focus {
   --p: 1;
+}
+
+.button--loading {
+  position: relative;
+  cursor: wait;
+  --p: 1;
+}
+.button--loading:before {
+  margin: -13px 0 0 -13px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  content: "";
+  border-radius: 24px;
+  background-clip: padding-box;
+  border: rgba(255, 255, 255, 0.25) 2px solid;
+  border-top-color: #fff;
+  animation: animation-rotate 750ms linear infinite;
+}
+.button--loading span,
+.button--loading:hover span,
+.button--loading:active span {
+  color: transparent;
+  text-shadow: none;
+}
+@keyframes animation-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
 }

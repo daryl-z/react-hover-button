@@ -1,17 +1,19 @@
 import React, { useRef, useEffect, useState } from "react";
+import getCssValue from "../../utils/getCssValue";
 import "./index.css";
 
-export default function HoverButtonDiagonal({
+function HoverButtonDiagonal({
   color = "#000",
   width = "12em",
   height,
   background,
-  maskColor,
+  maskColor = "#ef4654",
   children = "Hover me",
   onClick,
   style,
   maskStyle,
   disabled = false, // TODO
+  loading = false,
   ...params
 }) {
   const btnEle = useRef(null);
@@ -26,6 +28,7 @@ export default function HoverButtonDiagonal({
     setDiagonal(
       Math.sqrt(Math.pow(offsetWidth, 2) + Math.pow(offsetHeight, 2))
     );
+
     setDeg(Math.atan(offsetHeight / offsetWidth) * (-180 / Math.PI));
   }, []);
 
@@ -47,19 +50,17 @@ export default function HoverButtonDiagonal({
     }
   });
 
-  const pseudoColor = { color: maskColor ? maskColor : "#fff" };
-  const judgeCSSValue = value =>
-    typeof value === "number" ? `${value}px` : value;
+  const pseudoColor = { color: maskColor ? maskColor : "#ef4654" };
 
   return (
     <>
       <a
-        className="hover-button-diagonal"
+        className={`hover-button-diagonal ${loading ? "button--loading" : ""}`}
         style={{
           background: background ? backgroundColor : "#fff",
-          height: judgeCSSValue(height),
-          lineHeight: judgeCSSValue(height),
-          width: judgeCSSValue(width),
+          height: getCssValue(height),
+          lineHeight: getCssValue(height),
+          width: getCssValue(width),
           color: color,
           ...style
         }}
@@ -74,7 +75,7 @@ export default function HoverButtonDiagonal({
           style={{ ...pseudoColor, ...maskStyle }}
           ref={beforeBtn}
         />
-        {children}
+        <span>{children}</span>
         <div
           className="btn-after"
           style={{ ...pseudoColor, ...maskStyle }}
@@ -84,3 +85,5 @@ export default function HoverButtonDiagonal({
     </>
   );
 }
+
+export default React.memo(HoverButtonDiagonal);
