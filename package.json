@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server -d --config webpack.examples.config.js",
-    "build:demo": "webpack --mode production   --config webpack.examples.config.js",
+    "build": "webpack --mode production   --config webpack.examples.config.js",
     "transpile": "babel src -d lib --copy-files",
     "prepublishOnly": "npm run transpile",
     "deploy": "gh-pages -d examples/dist",

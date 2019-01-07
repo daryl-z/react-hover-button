@@ -12,7 +12,7 @@ function HoverButtonDiagonal({
   onClick,
   style,
   maskStyle,
-  disabled = false, // TODO
+  disabled = false,
   loading = false,
   ...params
 }) {
