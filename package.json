@@ -1,7 +1,7 @@
 {
   "name": "react-hover-button",
-  "version": "0.3.4",
-  "description": "A react component",
+  "version": "0.4.0",
+  "description": "A react component based on  React Hooks",
   "main": "lib/index.js",
   "homepage": "https://github.com/Angelki/react-hover-button#readme",
   "repository": {
@@ -9,10 +9,12 @@
     "url": "https://github.com/Angelki/react-hover-button.git"
   },
   "scripts": {
-    "start": "webpack-dev-server -d --config webpack.demo.config.js",
-    "build:demo": "webpack --mode production   --config webpack.demo.config.js",
-    "build": " webpack --mode production",
-    "build:dev": "webpack --mode development"
+    "start": "webpack-dev-server -d --config webpack.examples.config.js",
+    "build:demo": "webpack --mode production   --config webpack.examples.config.js",
+    "transpile": "babel src -d lib --copy-files",
+    "prepublishOnly": "npm run transpile",
+    "deploy": "gh-pages -d examples/dist",
+    "publish:demo": "npm run build && npm run deploy"
   },
   "keywords": [
     "react",
@@ -30,18 +32,18 @@
     "@babel/runtime": "^7.2.0",
     "babel-loader": "^8.0.4",
     "css-loader": "^2.1.0",
+    "gh-pages": "^2.0.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2",
     "style-loader": "^0.23.1",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.1.2",
-    "react-dom": "^16.7.0-alpha.2",
     "webpack-dev-server": "^3.1.14"
   },
   "peerDependencies": {
-    "react": "^16.7.0-alpha.2"
-  },
-  "dependencies": {
-    "react": "^16.7.0-alpha.2"
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2"
   }
 }

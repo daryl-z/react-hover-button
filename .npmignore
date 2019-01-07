@@ -1,8 +1,12 @@
 
-**/.*
-example
-demo
-script
+/node_modules
 yarn.lock
 yarn-error.log
 *.txt
+src
+examples
+.babelrc
+.gitignore
+jsConfig.json
+webpack.config.js
+webpack.demo.config.js

@@ -6,7 +6,6 @@
   display: block;
   overflow: hidden;
   position: relative;
-  border: 1px solid currentColor;
   z-index: 1;
   width: 12em;
   background: #fff;

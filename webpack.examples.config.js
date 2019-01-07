@@ -3,10 +3,10 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    demo: ["./src/button-demo.js"]
+    demo: ["./examples/src/index.js"]
   },
   output: {
-    path: path.resolve(__dirname, "demo"),
+    path: path.resolve(__dirname, "examples/dist"),
     filename: "[name].js"
   },
   module: {
@@ -41,13 +41,13 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: path.join(__dirname, "demo"),
-    compress: true,
+    // contentBase: path.join(__dirname, "examples/dist"),
+    // compress: true,
     port: 9000
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
+      template: "./examples/src/index.html",
       filename: "index.html"
     })
   ]

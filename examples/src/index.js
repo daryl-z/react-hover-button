@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { render } from "react-dom";
-// import { HoverButtonDiagonal } from "../lib/index";
-import { HoverButtonDiagonal } from "./index";
+// import { HoverButtonDiagonal } from "../../lib/index";
+import { HoverButtonDiagonal } from "../../src/index";
 import "./styles.css";
 
 function ButtonDemoList() {
