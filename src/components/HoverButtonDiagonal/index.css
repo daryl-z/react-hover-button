@@ -3,14 +3,16 @@
   --q: calc(1 - var(--p));
   --maskRotateDeg: 0deg;
   --diagonal: 0px;
+  --color: #000;
+  --maskColor: #000;
+
   display: block;
   overflow: hidden;
   position: relative;
   z-index: 1;
   width: 12em;
-  background: #fff;
-  color: #000;
-  font: 700 1.125em/ 3 trebuchet ms, sans-serif;
+  border: 1px solid var(--maskColor);
+  color: var(--color);
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -53,35 +55,5 @@
 .hover-button-diagonal:hover,
 .hover-button-diagonal:focus {
   --p: 1;
-}
-
-.button--loading {
-  position: relative;
-  cursor: wait;
-  --p: 1;
-}
-.button--loading:before {
-  margin: -13px 0 0 -13px;
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  content: "";
-  border-radius: 24px;
-  background-clip: padding-box;
-  border: rgba(255, 255, 255, 0.25) 2px solid;
-  border-top-color: #fff;
-  animation: animation-rotate 750ms linear infinite;
-}
-.button--loading span,
-.button--loading:hover span,
-.button--loading:active span {
-  color: transparent;
-  text-shadow: none;
-}
-@keyframes animation-rotate {
-  100% {
-    transform: rotate(360deg);
-  }
+  --color: #fff !important;
 }

@@ -1,14 +1,14 @@
 import React, { useRef, useEffect, useLayoutEffect, useState } from "react";
 import getCssValue from "../../utils/getCssValue";
 import "./index.css";
+import "../common/common.css";
 
 function HoverButtonPosition({
-  color = "#000",
-  width = "12em",
+  width,
   height,
   background,
-  maskColor = "#ef4654",
-  children = "Hover me",
+  maskColor,
+  children,
   onClick,
   style,
   maskStyle,
@@ -16,10 +16,27 @@ function HoverButtonPosition({
   loading = false,
   ...params
 }) {
+  const positionBtn = useRef(null);
+
   return (
-    <a href="javascript:;" className="react-hover-button-position">
-      {children}
-      <span />
+    <a
+      href="javascript:;"
+      className={`react-hover-button-position ${
+        loading && !disabled ? "button--loading" : ""
+      } ${disabled ? "not-active" : ""}`}
+      style={{
+        background: background ? backgroundColor : "",
+        height: getCssValue(height),
+        lineHeight: getCssValue(height),
+        width: getCssValue(width),
+        ...style
+      }}
+      ref={positionBtn}
+      onClick={onClick}
+      {...params}
+    >
+      <span className="children">{children}</span>
+      <span className="hover-mask" />
     </a>
   );
 }

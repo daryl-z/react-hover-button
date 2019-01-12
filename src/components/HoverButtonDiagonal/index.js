@@ -1,9 +1,10 @@
 import React, { useRef, useEffect, useLayoutEffect, useState } from "react";
 import getCssValue from "../../utils/getCssValue";
 import "./index.css";
+import "../common/common.css";
 
 function HoverButtonDiagonal({
-  color = "#000",
+  // color = "#000",
   width = "12em",
   height,
   background,
@@ -40,7 +41,9 @@ function HoverButtonDiagonal({
     } else {
       const commonStyleMap = {
         "--maskRotateDeg": maskRotateDeg + "deg",
-        "--diagonal": diagonal + "px"
+        "--diagonal": diagonal + "px",
+        "--color": maskColor,
+        "--maskColor": maskColor
       };
       for (let prop in commonStyleMap) {
         if (commonStyleMap.hasOwnProperty(prop)) {
@@ -58,11 +61,11 @@ function HoverButtonDiagonal({
         loading && !disabled ? "button--loading" : ""
       } ${disabled ? "not-active" : ""}`}
       style={{
-        background: background ? backgroundColor : "#fff",
+        background: background ? backgroundColor : "",
         height: getCssValue(height),
         lineHeight: getCssValue(height),
         width: getCssValue(width),
-        color: color,
+        // color: maskColor,
         ...style
       }}
       href="javascript:;"

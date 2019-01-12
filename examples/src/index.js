@@ -28,6 +28,7 @@ function ButtonDemoList() {
         <HoverButtonDiagonal
           width={300}
           color="#333"
+          maskColor="#00a3fe"
           loading={loading}
           disabled={false}
         >
@@ -35,7 +36,9 @@ function ButtonDemoList() {
         </HoverButtonDiagonal>
       </div>
       <div style={{ marginTop: 30 }}>
-        <HoverButtonPosition>Delete</HoverButtonPosition>
+        <HoverButtonPosition loading={loading} disabled={false}>
+          Delete
+        </HoverButtonPosition>
       </div>
     </>
   );

@@ -14,7 +14,7 @@ a {
   text-align: center;
 }
 
-.react-hover-button-position span {
+.react-hover-button-position .hover-mask {
   position: absolute;
   display: block;
   width: 0;
@@ -30,10 +30,10 @@ a {
 .react-hover-button-position:hover {
   color: #fff;
 }
-.react-hover-button-position:hover span,
-.react-hover-button-position:active span {
+.react-hover-button-position:hover .hover-mask,
+.react-hover-button-position:active .hover-mask {
   width: 225%;
-  height: 562.5px;
+  height: 300%;
 }
 .react-hover-button-position:active {
   background-color: #ef4654;

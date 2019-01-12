@@ -1,0 +1,41 @@
+.not-active {
+  pointer-events: none;
+  cursor: not-allowed;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.25) !important;
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+.button--loading {
+  position: relative;
+  cursor: wait;
+  --p: 1;
+}
+.button--loading:before {
+  margin: -13px 0 0 -13px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  content: "";
+  border-radius: 24px;
+  background-clip: padding-box;
+  border: rgba(255, 255, 255, 0.25) 2px solid;
+  border-top-color: #fff;
+  animation: animation-rotate 750ms linear infinite;
+}
+.button--loading span,
+.button--loading:hover span,
+.button--loading:active span {
+  color: transparent;
+  text-shadow: none;
+}
+@keyframes animation-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

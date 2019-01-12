@@ -1,7 +1,7 @@
 {
   "name": "react-hover-button",
-  "version": "0.4.2",
-  "description": "A react component based on  React Hooks",
+  "version": "0.4.3",
+  "description": "A react component based on React Hooks",
   "main": "lib/index.js",
   "homepage": "http://3zhome.com/react-hover-button",
   "repository": {
