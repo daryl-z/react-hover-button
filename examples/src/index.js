@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { render } from "react-dom";
 // import { HoverButtonDiagonal } from "../../lib/index";
-import { HoverButtonDiagonal } from "../../src/index";
+import { HoverButtonDiagonal, HoverButtonPosition } from "../../src/index";
 import "./styles.css";
 
 function ButtonDemoList() {
@@ -23,16 +23,21 @@ function ButtonDemoList() {
   }, []);
 
   return (
-    <div ref={hoverBtn}>
-      <HoverButtonDiagonal
-        width={300}
-        color="#333"
-        loading={loading}
-        disabled={false}
-      >
-        Hover me!
-      </HoverButtonDiagonal>
-    </div>
+    <>
+      <div ref={hoverBtn}>
+        <HoverButtonDiagonal
+          width={300}
+          color="#333"
+          loading={loading}
+          disabled={false}
+        >
+          Confirm
+        </HoverButtonDiagonal>
+      </div>
+      <div style={{ marginTop: 30 }}>
+        <HoverButtonPosition>Delete</HoverButtonPosition>
+      </div>
+    </>
   );
 }
 render(<ButtonDemoList />, document.getElementById("root"));

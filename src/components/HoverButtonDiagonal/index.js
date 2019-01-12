@@ -53,37 +53,35 @@ function HoverButtonDiagonal({
   const pseudoColor = { color: maskColor ? maskColor : "#ef4654" };
 
   return (
-    <>
-      <a
-        className={`hover-button-diagonal ${
-          loading && !disabled ? "button--loading" : ""
-        } ${disabled ? "not-active" : ""}`}
-        style={{
-          background: background ? backgroundColor : "#fff",
-          height: getCssValue(height),
-          lineHeight: getCssValue(height),
-          width: getCssValue(width),
-          color: color,
-          ...style
-        }}
-        href="#"
-        ref={btnEle}
-        onClick={onClick}
-        {...params}
-      >
-        <div
-          className="btn-before"
-          style={{ ...pseudoColor, ...maskStyle }}
-          ref={beforeBtn}
-        />
-        <span>{children}</span>
-        <div
-          className="btn-after"
-          style={{ ...pseudoColor, ...maskStyle }}
-          ref={afterBtn}
-        />
-      </a>
-    </>
+    <a
+      className={`hover-button-diagonal ${
+        loading && !disabled ? "button--loading" : ""
+      } ${disabled ? "not-active" : ""}`}
+      style={{
+        background: background ? backgroundColor : "#fff",
+        height: getCssValue(height),
+        lineHeight: getCssValue(height),
+        width: getCssValue(width),
+        color: color,
+        ...style
+      }}
+      href="javascript:;"
+      ref={btnEle}
+      onClick={onClick}
+      {...params}
+    >
+      <div
+        className="btn-before"
+        style={{ ...pseudoColor, ...maskStyle }}
+        ref={beforeBtn}
+      />
+      <span>{children}</span>
+      <div
+        className="btn-after"
+        style={{ ...pseudoColor, ...maskStyle }}
+        ref={afterBtn}
+      />
+    </a>
   );
 }
 

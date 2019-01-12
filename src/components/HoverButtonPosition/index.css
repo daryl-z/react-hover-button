@@ -1,0 +1,40 @@
+.react-hover-button-position {
+  color: #ef4654;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  border: 1px solid #ef4654;
+}
+
+a {
+  text-decoration: none;
+  line-height: 54px;
+  color: black;
+  text-align: center;
+}
+
+.react-hover-button-position span {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  background-color: #ef4654;
+  transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.react-hover-button-position:hover {
+  color: #fff;
+}
+.react-hover-button-position:hover span,
+.react-hover-button-position:active span {
+  width: 225%;
+  height: 562.5px;
+}
+.react-hover-button-position:active {
+  background-color: #ef4654;
+}
