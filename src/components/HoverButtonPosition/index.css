@@ -33,7 +33,7 @@ a {
 .react-hover-button-position:hover .hover-mask,
 .react-hover-button-position:active .hover-mask {
   width: 225%;
-  height: 300%;
+  height: 600%;
 }
 .react-hover-button-position:active {
   background-color: #ef4654;
